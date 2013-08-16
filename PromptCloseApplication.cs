@@ -57,11 +57,7 @@ namespace ClosePromptCA
 
         static bool IsRunning(string processName)
         {
-            var procList = Process.GetProcesses();
-            foreach (var p in procList)
-                if (p.ProcessName == processName)
-                    return true;
-            return false;
+            return Process.GetProcessesByName(processName).Length > 0;
         }
 
         public void Dispose()
